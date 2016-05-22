@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Pošta {{ user }}{% endblock title %}
+
+{% block content %}
+
+
+<div class="container">
+
+    {% if logged_in %}
+        <div class="inline-button">
+            <a href="/mail/{{ mail.key.id() }}/reply"><button>Reply</button></a>
+        </div>
+        {% if mail.from_user != user.nickname() and mail.read == False %}
+            <div class="inline-button">
+                <form method="post" action="/mail/{{ mail.key.id() }}">
+                    <a><button>Označi kot prebrano</button></a>
+                </form>
+            </div>
+        {% endif %}
+
+        <p></p>
+
+        <div class="background">
+            <div class="mail-position">
+                <h1>{{ mail.subject }}<span class="date_span">{{ mail.created.strftime("%d.%m.%Y at %H:%M") }}</span></h1>
+                <div class="border-line"></div>
+                <p>Od: {{ mail.from_user }}</p>
+                <p>Za: {{ mail.to }}</p>
+                <div class="border-line"></div>
+                <br>
+                <br>
+                <p>{{ mail.msg }}</p>
+            </div>
+        </div>
+
+    {% else %}
+
+        <center><h1>Prosim, vpiši se</h1></center>
+
+    {% endif %}
+
+</div>
+
+{% endblock content %}

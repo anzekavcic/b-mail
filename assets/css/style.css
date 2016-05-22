@@ -1,0 +1,61 @@
+body {
+    background-image: url("/assets/images/background.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+label {
+    display:block;
+    float:left;
+}
+.mail-hover:hover {
+    background-color: #F0F0F0;
+}
+.mail-margin {
+    margin-top: -15px
+}
+.mail-margin-top {
+    margin-top: 30px;
+}
+.text-right {
+    float: right;
+}
+.text-center {
+    text-align: center;
+}
+.send_mail-container {
+    margin-top: 20px;
+}
+.mail_sent-container {
+    background-color: white;
+}
+.background {
+    background-color: white;
+    border-radius: 5px;
+}
+.mail-position {
+    padding-top: 1px;
+    margin-left: 20px;
+    padding-bottom: 10px;
+    margin-right: 20px;
+}
+.date_span {
+    float: right;
+    font-size: 15px;
+}
+.border-line {
+    border-bottom: 1px solid #B3B3B3;
+}
+.inline-button {
+    display: inline-block;
+}
+.True {
+    background-color: inherit;
+}
+.False {
+    background-color: #CCCCCC;
+}

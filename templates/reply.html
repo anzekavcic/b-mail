@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Odgovor - {{ user }}{% endblock title %}
+
+{% block content %}
+
+    <div class="container send_mail-container">
+
+        {% if logged_in %}
+
+            <form method="post" action="/mailsent">
+              <div class="form-group">
+                <label>Za: </label>
+                <input class="form-control" name="to" value="{{ mail.from_user }}" required>
+              </div>
+              <div class="form-group">
+                <label>Zadeva: </label>
+                <input class="form-control" name="subject" value="Re: {{ mail.subject }}">
+              </div>
+              <div class="form-group">
+                <label>Sporočilo: </label>
+                <textarea class="form-control" name="msg" rows="7" required></textarea>
+              </div>
+                <button type="submit" class="btn btn-default">Pošlji</button>
+            </form>
+
+        {% else %}
+
+            <center><h1>Prosim, vpiši se</h1></center>
+
+        {% endif %}
+
+    </div>
+
+{% endblock content %}

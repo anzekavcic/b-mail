@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Poslana pošta - {{ user }}{% endblock title %}
+
+{% block active2 %}active{% endblock active2 %}
+
+{% block content %}
+
+    <div class="container">
+        {% if logged_in %}
+
+            <a href="/send"><button>Novo</button></a>
+
+            <h1>Poslana pošta</h1>
+            <div class="mail-margin-top">
+                {% for mail in bmail %}
+
+                    <div class="panel panel-default mail-margin">
+                      <div class="panel-body mail-hover">
+                          To: {{ mail.to }}
+                                <a href="/mail/{{ mail.key.id() }}">{{ mail.subject }}</a>
+                          <span class="text-right">{{ mail.created.strftime("%d.%m.%Y") }}</span>
+                      </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+        {% else %}
+
+            <center><h1>Prosim, vpiši se</h1></center>
+
+        {% endif %}
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Prejeto{{ user }}{% endblock title %}
+
+{% block active1 %}active{% endblock active1 %}
+
+{% block content %}
+
+    <div class="container">
+        {% if logged_in %}
+
+            <a href="/send"><button>Novo</button></a>
+
+            <h1>Prejeto</h1>
+            <div class="mail-margin-top">
+                {% for mail in bmail %}
+                    <div class="panel panel-default mail-margin">
+                      <div class="panel-body mail-hover {{ mail.read }}">
+                          From: {{ mail.from_user }}
+                            <a href="/mail/{{ mail.key.id() }}">{{ mail.subject }}</a>
+                          <span class="text-right">{{ mail.created.strftime("%d.%m.%Y") }}</span>
+                      </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+        {% else %}
+
+            <center><h1>Prosim vpiši se</h1></center>
+
+        {% endif %}
+    </div>
+
+{% endblock content %}
